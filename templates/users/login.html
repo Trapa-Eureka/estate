@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    Log In
+{% endblock page_title %}
+
+{% block search-bar %}
+{% endblock search-bar %}
+
+{% block content %}
+
+    <form method="POST" action="{% url "users:login" %}">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button>Login</button>
+    </form>
+
+{% endblock content %}
+
+{% comment %}
+    CSRF : Cross Site Request Forgery(사이트 간 요청 위조 판별? 방지?)
+    https://docs.djangoproject.com/en/3.1/ref/csrf/
+{% endcomment %}
